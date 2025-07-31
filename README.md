@@ -2,7 +2,7 @@
 
 A modern, responsive dashboard for healthcare professionals to monitor patient vital signs and medical history.
 
-![image](https://github.com/user-attachments/assets/599cec31-22e7-408f-85b3-2e0b1db2ed95)
+
 
 ## Features
 
