@@ -123,8 +123,8 @@ const HeartRateChart = ({ diagnosisHistory }) => {
     };
 
     return (
-        <div className="mt-4">
-            <div className="h-32">
+        <div className="mt-2">
+            <div className="h-24">
                 <Chart type="line" data={chartData} options={chartOptions} />
             </div>
         </div>

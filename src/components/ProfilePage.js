@@ -47,8 +47,8 @@ const ProfilePage = ({ userHealthData }) => {
                   className="w-20 h-20 rounded-full object-cover border-4 border-white shadow-lg"
                 />
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">{user.name || 'User Name'}</h3>
-                  <p className="text-gray-600">{user.gender}, {user.age} years old</p>
+                  <h3 className="text-2xl font-bold text-gray-900">{user.name || 'Ankita Ghosh'}</h3>
+                  <p className="text-gray-600">{user.gender || 'Female'}, {user.age || 21} years old</p>
                   <Badge variant="outline" className="mt-2">Active User</Badge>
                 </div>
               </div>
@@ -59,7 +59,7 @@ const ProfilePage = ({ userHealthData }) => {
                     <Mail className="w-4 h-4" />
                     <span className="text-sm">Email</span>
                   </div>
-                  <p className="font-medium">jessica.taylor@email.com</p>
+                  <p className="font-medium">ankita.ghosh@email.com</p>
                 </div>
                 <div className="space-y-2">
                   <div className="flex items-center space-x-2 text-gray-600">
@@ -73,14 +73,14 @@ const ProfilePage = ({ userHealthData }) => {
                     <Calendar className="w-4 h-4" />
                     <span className="text-sm">Date of Birth</span>
                   </div>
-                  <p className="font-medium">{user.date_of_birth || 'March 15, 1995'}</p>
+                  <p className="font-medium">{user.date_of_birth || 'March 15, 2003'}</p>
                 </div>
                 <div className="space-y-2">
                   <div className="flex items-center space-x-2 text-gray-600">
                     <MapPin className="w-4 h-4" />
                     <span className="text-sm">Location</span>
                   </div>
-                  <p className="font-medium">New York, NY</p>
+                  <p className="font-medium">Kolkata, India</p>
                 </div>
               </div>
 
@@ -100,11 +100,11 @@ const ProfilePage = ({ userHealthData }) => {
             <CardContent className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="text-center p-4 bg-gray-50 rounded-lg">
-                  <div className="text-2xl font-bold text-gray-900">5'6"</div>
+                  <div className="text-2xl font-bold text-gray-900">5'2"</div>
                   <div className="text-sm text-gray-600">Height</div>
                 </div>
                 <div className="text-center p-4 bg-gray-50 rounded-lg">
-                  <div className="text-2xl font-bold text-gray-900">140 lbs</div>
+                  <div className="text-2xl font-bold text-gray-900">110.231 lbs</div>
                   <div className="text-sm text-gray-600">Weight</div>
                 </div>
                 <div className="text-center p-4 bg-gray-50 rounded-lg">
@@ -124,7 +124,7 @@ const ProfilePage = ({ userHealthData }) => {
               <div className="space-y-3">
                 <h4 className="font-semibold text-gray-900">Emergency Contact</h4>
                 <div className="p-4 bg-gray-50 rounded-lg">
-                  <p className="font-medium">John Taylor (Brother)</p>
+                  <p className="font-medium">Rahul Ghosh (Brother)</p>
                   <p className="text-sm text-gray-600">+1 (555) 987-6543</p>
                 </div>
               </div>

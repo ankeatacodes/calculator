@@ -38,7 +38,18 @@ function App() {
         console.log("Patient Data: ", data);
         setPatients(data);
 
-        const jessicaData = data.find(patient => patient.name === 'Jessica Taylor');
+        const jessicaData = data.find(patient => patient.name === 'Ankita Ghosh') || 
+                           data.find(patient => patient.name === 'Ankita Taylor') || 
+                           data[0]; // Fallback
+        
+        // Override with Ankita's profile information
+        if (jessicaData) {
+          jessicaData.name = 'Ankita Ghosh';
+          jessicaData.gender = 'Female';
+          jessicaData.age = 21;
+          jessicaData.date_of_birth = 'March 15, 2003';
+        }
+        
         setSelectedPatient(jessicaData);
         const dateOfBirth = new Date(jessicaData.date_of_birth);
         const monthName = dateOfBirth.toLocaleString('default', { month: 'long' });

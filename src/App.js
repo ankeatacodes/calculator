@@ -36,8 +36,19 @@ function App() {
         }
 
         const data = await response.json();
-        // Use Jessica Taylor's data as the logged-in user's data
-        const userData = data.find(patient => patient.name === 'Jessica Taylor');
+        // Use Ankita Ghosh's data as the logged-in user's data
+        const userData = data.find(patient => patient.name === 'Ankita Ghosh') || 
+                        data.find(patient => patient.name === 'Ankita Taylor') || 
+                        data[0]; // Fallback to first patient if Ankita not found
+        
+        // Override with Ankita's profile information
+        if (userData) {
+          userData.name = 'Ankita Ghosh';
+          userData.gender = 'Female';
+          userData.age = 21;
+          userData.date_of_birth = 'March 15, 2003';
+        }
+        
         setUserHealthData(userData);
         
         // Initialize exercise data for the user

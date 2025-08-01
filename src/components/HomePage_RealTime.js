@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { Timer, AlertTriangle } from 'lucide-react';
+import { Timer, AlertTriangle, Heart, Activity } from 'lucide-react';
+import HeartRateChart from './HeartRateChart';
 import RealTimeHeartRate from './RealTimeHeartRate';
-import RealTimeRespiratoryRate from './RealTimeRespiratoryRate';
 import RealTimeVitals from './RealTimeVitals';
 import ExerciseTracker from './ExerciseTracker';
 import InjuryPredictor from './InjuryPredictor';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
+import heartBPM from '../assets/HeartBPM.png';
 
 const HomePage = ({ userHealthData, exerciseData, currentExercise, onStartExercise, onStopExercise }) => {
   const [realTimeVitals, setRealTimeVitals] = useState({
@@ -49,15 +50,11 @@ const HomePage = ({ userHealthData, exerciseData, currentExercise, onStartExerci
 
       {/* Real-time Vitals Monitoring */}
       <div className="mb-8">
-        <RealTimeVitals 
-          isMonitoring={isMonitoring}
-          currentHeartRate={realTimeVitals.heartRate}
-          onVitalsUpdate={handleVitalsUpdate} 
-        />
+        <RealTimeVitals onVitalsUpdate={handleVitalsUpdate} />
       </div>
 
-      {/* Real-Time Charts - Side by Side */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+      {/* Charts and Detailed Views */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         {/* Real-time Heart Rate Chart */}
         <div>
           <RealTimeHeartRate 
@@ -66,13 +63,23 @@ const HomePage = ({ userHealthData, exerciseData, currentExercise, onStartExerci
           />
         </div>
 
-        {/* Real-time Respiratory Rate Chart */}
-        <div>
-          <RealTimeRespiratoryRate 
-            isMonitoring={isMonitoring} 
-            currentRespiratoryRate={realTimeVitals.respiratoryRate}
-          />
-        </div>
+        {/* Historical Heart Rate Trends */}
+        <Card>
+          <CardHeader>
+            <div className='flex items-center space-x-3'>
+              <img src={heartBPM} alt="Heart Rate" className="w-8 h-8" />
+              <div>
+                <CardTitle>Heart Rate History</CardTitle>
+                <CardDescription>Your heart rate trends over the past 6 months</CardDescription>
+              </div>
+            </div>
+          </CardHeader>
+          <CardContent>
+            {userHealthData && userHealthData.diagnosis_history && (
+              <HeartRateChart diagnosisHistory={userHealthData.diagnosis_history} />
+            )}
+          </CardContent>
+        </Card>
       </div>
 
       {/* Exercise Tracking and Injury Prediction */}
